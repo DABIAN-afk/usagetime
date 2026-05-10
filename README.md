@@ -28,9 +28,9 @@ Windows 桌面屏幕使用时间统计工具，帮助你了解每天在各个应
 
 ## 安装
 
-### 方式一：下载发行版
+### 方式一：下载使用
 
-前往 [Releases](https://github.com/DABIAN-afk/usagetime/releases) 下载最新版本，解压后双击 `UsageTracker.exe` 即可使用。
+前往 [Releases](https://github.com/DABIAN-afk/usagetime/releases) 下载 `UsageTime.exe`，双击即可运行，无需安装 Python 环境。
 
 ### 方式二：从源码运行
 
@@ -51,7 +51,7 @@ python generate_icon.py
 pyinstaller app.spec --clean
 ```
 
-打包产物在 `dist/UsageTracker/` 目录下。
+打包产物为 `dist/UsageTime.exe` 单文件。
 
 ## 技术栈
 
