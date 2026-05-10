@@ -1,4 +1,4 @@
-# UsageMonitor
+# ScreenTime
 
 Windows 桌面屏幕使用时间统计工具，帮助你了解每天在各个应用上花费的时间。
 
@@ -22,48 +22,22 @@ Windows 桌面屏幕使用时间统计工具，帮助你了解每天在各个应
 
 ## 界面预览
 
-```
-┌─────────────────────────────────────┐
-│  屏幕时间统计            12:30:45   │
-│─────────────────────────────────────│
-│  [ 今日 ]  [ 本周 ]  [ 设置 ]       │
-│─────────────────────────────────────│
-│  ┌───────────────────────────────┐  │
-│  │  屏幕使用时间                  │  │
-│  │  ◀  今日  ▶        3小时24分  │  │
-│  │     2026年5月10日   12 个应用  │  │
-│  └───────────────────────────────┘  │
-│  ┌───────────────────────────────┐  │
-│  │  每小时使用                    │  │
-│  │   ▌ ▌  ▌▌▌ ▌▌  ▌▌▌▌▌ ▌       │  │
-│  │   0    6    12   18   23      │  │
-│  └───────────────────────────────┘  │
-│  ┌───────────────────────────────┐  │
-│  │  应用使用排行                  │  │
-│  │   ● Chrome     1h23m  42% ███ │  │
-│  │   ● VS Code    45min  23% ██  │  │
-│  │   ● 微信       30min  15% █   │  │
-│  └───────────────────────────────┘  │
-└─────────────────────────────────────┘
-```
+![今日统计](预览1.png)
+
+![本周统计](预览2.png)
 
 ## 安装
 
 ### 方式一：下载发行版
 
-前往 [Releases](https://github.com/你的用户名/UsageMonitor/releases) 下载最新版本，解压后双击 `UsageTracker.exe` 即可使用。
+前往 [Releases](https://github.com/DABIAN-afk/ScreenTime/releases) 下载最新版本，解压后双击 `UsageTracker.exe` 即可使用。
 
 ### 方式二：从源码运行
 
 ```bash
-# 克隆仓库
-git clone https://github.com/你的用户名/UsageMonitor.git
-cd UsageMonitor
-
-# 安装依赖
+git clone https://github.com/DABIAN-afk/ScreenTime.git
+cd ScreenTime
 pip install -r requirements.txt
-
-# 运行
 python main.py
 ```
 
@@ -87,24 +61,6 @@ pyinstaller app.spec --clean
 - **空闲检测**: Win32 API (GetLastInputInfo)
 - **图标提取**: Win32 IImageList + SHGetFileInfo
 - **打包**: PyInstaller
-
-## 项目结构
-
-```
-UsageMonitor/
-├── main.py           # 应用入口
-├── monitor.py        # 前台窗口检测 + 空闲检测
-├── storage.py        # SQLite 数据存储层
-├── dashboard.py      # PySide6 主界面
-├── tray.py           # 系统托盘
-├── icons.py          # 图标提取（快捷方式/进程图标）
-├── autostart.py      # 开机自启管理
-├── generate_icon.py  # 生成应用图标
-├── build.bat         # Windows 构建脚本
-├── app.spec          # PyInstaller 配置
-├── requirements.txt  # 依赖列表
-└── 图标.png          # 应用图标
-```
 
 ## 隐私声明
 
