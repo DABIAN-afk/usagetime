@@ -1,0 +1,4 @@
+PySide6
+pywin32
+Pillow
+psutil
