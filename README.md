@@ -1,4 +1,4 @@
-# ScreenTime
+# UsageTime
 
 Windows 桌面屏幕使用时间统计工具，帮助你了解每天在各个应用上花费的时间。
 
@@ -30,12 +30,12 @@ Windows 桌面屏幕使用时间统计工具，帮助你了解每天在各个应
 
 ### 方式一：下载发行版
 
-前往 [Releases](https://github.com/DABIAN-afk/ScreenTime/releases) 下载最新版本，解压后双击 `UsageTracker.exe` 即可使用。
+前往 [Releases](https://github.com/DABIAN-afk/usagetime/releases) 下载最新版本，解压后双击 `UsageTracker.exe` 即可使用。
 
 ### 方式二：从源码运行
 
 ```bash
-git clone https://github.com/DABIAN-afk/ScreenTime.git
+git clone https://github.com/DABIAN-afk/usagetime.git
 cd ScreenTime
 pip install -r requirements.txt
 python main.py
