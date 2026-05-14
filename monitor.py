@@ -25,9 +25,11 @@ class LASTINPUTINFO(ctypes.Structure):
 def _get_idle_seconds():
     lii = LASTINPUTINFO()
     lii.cbSize = ctypes.sizeof(lii)
-    ctypes.windll.user32.GetLastInputInfo(ctypes.byref(lii))
+    if not ctypes.windll.user32.GetLastInputInfo(ctypes.byref(lii)):
+        return 0.0
     tick = ctypes.windll.kernel32.GetTickCount()
-    return (tick - lii.dwTime) / 1000.0
+    idle = (tick - lii.dwTime) / 1000.0
+    return max(0.0, idle)
 
 
 # ── 忽略的系统进程 ────────────────────────────────────────────
@@ -215,9 +217,9 @@ class WindowMonitor:
                     self._last_exe = exe
                     self._last_start = time.time()
 
-            # 定期 flush 缓冲区到 DB
+            # 定期 flush 缓冲区到 DB（空闲期间不 flush）
             now = time.time()
-            if now - self._last_flush >= self._flush_interval:
+            if not self._was_idle and now - self._last_flush >= self._flush_interval:
                 self._flush_current()
                 self._flush_to_db()
                 self._last_start = time.time()
